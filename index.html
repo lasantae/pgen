@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A Password Manager." />
+    <meta name="theme-color" content="#f5f5f5" />
+    <meta
+      name="theme-color"
+      content="#171717"
+      media="(prefers-color-scheme: dark)"
+    />
+
+    <title>pgen - Password Generator</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="icon" type="image/png" href="icons/pgen_ico.ico" />
+    <link rel="manifest" href="manifest.json" />
+
+    <script type="module" src="./src/main.ts" defer></script>
+  </head>
+  <body>
+    <!-- #region App Container -->
+    <div class="app-container">
+      <header>
+        <h1>pgen</h1>
+        <button id="settings-btn" class="icon-btn" aria-label="Settings">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.1a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"
+            />
+            <circle cx="12" cy="12" r="3" />
+          </svg>
+        </button>
+      </header>
+
+      <div class="password-display">
+        <span id="password-output" class="password-text"></span>
+        <button id="copy-btn" class="icon-btn" aria-label="Copy to clipboard">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+            <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="controls">
+        <div class="control-group">
+          <div class="label-row">
+            <label for="length-slider">Length</label>
+            <span id="length-value">12</span>
+          </div>
+          <input type="range" id="length-slider" min="8" max="16" value="12" />
+        </div>
+      </div>
+
+      <div class="actions">
+        <button id="generate-btn" class="btn">Generate</button>
+      </div>
+    </div>
+    <!-- #endregion -->
+
+    <!-- #region Settings Dialog -->
+    <dialog id="settings-dialog">
+      <div class="dialog-header">
+        <h2>Settings</h2>
+      </div>
+      <div class="dialog-content">
+        <div class="setting-row">
+          <input type="checkbox" id="auto-copy-check" />
+          <label for="auto-copy-check">Auto-copy to clipboard</label>
+        </div>
+        <div class="setting-row">
+          <input type="checkbox" id="offline-mode-check" />
+          <label for="offline-mode-check">Offline Mode</label>
+        </div>
+      </div>
+      <button id="close-settings-btn" class="btn close-btn">Close</button>
+    </dialog>
+    <!-- #endregion -->
+  </body>
+</html>
